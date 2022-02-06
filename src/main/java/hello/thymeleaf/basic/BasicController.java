@@ -99,15 +99,21 @@ public class BasicController {
 
     @GetMapping("/each")
     public String each(Model model) {
-        addUser(model);
+        addUsers(model);
         return "basic/each";
     }
 
-    private void addUser(Model model) {
+    @GetMapping("/condition")
+    public String condition(Model model) {
+        addUsers(model);
+        return "basic/condition";
+    }
+
+    private void addUsers(Model model) {
         List<User> list = new ArrayList<>();
         list.add(new User("UserA", 10));
-        list.add(new User("UserB", 20));
-        list.add(new User("UserC", 30));
+        list.add(new User("UserB", 15));
+        list.add(new User("UserC", 20));
         list.add(new User("UserD", 40));
 
         model.addAttribute("users", list);
